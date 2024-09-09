@@ -1,0 +1,28 @@
+
+import javax.swing.JOptionPane;
+
+public class mcm {
+    public static void main(String[] args) {
+        String input1 = JOptionPane.showInputDialog("Ingrese el primer número:");
+        String input2 = JOptionPane.showInputDialog("Ingrese el segundo número:");
+        
+        int num1 = Integer.parseInt(input1); 
+        int num2 = Integer.parseInt(input2); 
+        int mcm = calcularMCM(num1, num2);
+        
+        JOptionPane.showMessageDialog(null, "El mínimo común múltiplo de " + num1 + " y " + num2 + " es: " + mcm);
+    }
+
+    public static int calcularMCM(int a, int b) {
+        return (a * b) / calcularMCD(a, b); 
+    }
+
+    public static int calcularMCD(int a, int b) {
+        while (b != 0) {
+            int temp = b;
+            b = a % b; 
+            a = temp; 
+        }
+        return a; 
+    }
+}

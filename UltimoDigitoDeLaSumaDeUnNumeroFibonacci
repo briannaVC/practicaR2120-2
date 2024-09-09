@@ -1,0 +1,30 @@
+
+import javax.swing.JOptionPane;
+
+public class sumadenumfibonaci {
+    public static void main(String[] args) {
+        String inputN = JOptionPane.showInputDialog("Ingrese el valor de n:");
+
+        int n = Integer.parseInt(inputN);
+        int ultimoDigito = ultimoDigitoSumaFibonacci(n);
+
+        
+        JOptionPane.showMessageDialog(null, "El último dígito de la suma de Fibonacci hasta F(" + n + ") es: " + ultimoDigito);
+    }
+
+    public static int ultimoDigitoSumaFibonacci(int n) {
+        if (n == 0) return 0; 
+        if (n == 1) return 1; 
+        int fib1 = 0; 
+        int fib2 = 1; 
+        int suma = fib1 + fib2; 
+        
+        for (int i = 2; i <= n; i++) {
+            int fibActual = (fib1 + fib2); 
+            suma += fibActual; 
+            fib1 = fib2; 
+            fib2 = fibActual; 
+        }
+        return suma % 10 ;
+    }
+}

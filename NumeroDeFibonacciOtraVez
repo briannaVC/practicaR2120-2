@@ -1,0 +1,34 @@
+
+import javax.swing.JOptionPane;
+
+public class fibonaccimod {
+    public static void main(String[] args) {
+        
+        String inputN = JOptionPane.showInputDialog("Ingrese el valor de n:");
+        String inputM = JOptionPane.showInputDialog("Ingrse el valor de m:");
+
+        int n = Integer.parseInt(inputN);
+        int m = Integer.parseInt(inputM);
+        int result = fibonacciModulo(n, m);
+
+        JOptionPane.showMessageDialog(null, "F(" + n + ") mod " + m + " es: " + result);
+    }
+
+    public static int fibonacciModulo(int n, int m) {
+        
+        if (n <= 1) {
+            return n % m;
+        }
+
+        int fib1 = 0; 
+        int fib2 = 1;
+        int fibonacciMod = 0; 
+        
+        for (int i = 2; i <= n; i++) {
+            fibonacciMod = (fib1 + fib2) % m; 
+            fib1 = fib2; 
+            fib2 = fibonacciMod;
+        }
+        return fibonacciMod;
+    }
+}

@@ -1,0 +1,32 @@
+
+import javax.swing.JOptionPane;
+
+public class numerograndefibonacci {
+    public static void main(String[] args) {
+        String input = JOptionPane.showInputDialog("Ingrese un número grande para calcular el último dígito de su Fibonacci:");
+        
+        long n = Long.parseLong(input); 
+        
+        int ultimoDigito = ultimoDigitoFibonacci(n);
+        
+        JOptionPane.showMessageDialog(null, "El último dígito de un numero grande de Fibonacci(" + n + ") es: " + ultimoDigito);
+    }
+
+    public static int ultimoDigitoFibonacci(long n) {
+        if (n <= 0) {
+            return 0; 
+        } else if (n == 1) {
+            return 1; 
+        } else {
+            int a = 0, b = 1; 
+            int ultimoDigito = 0;
+
+            for (long i = 2; i <= n; i++) {
+                ultimoDigito = (a + b) % 10; 
+                a = b;
+                b = ultimoDigito;
+            }
+            return ultimoDigito;
+        }
+    }
+}

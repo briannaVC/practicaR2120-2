@@ -1,0 +1,24 @@
+
+import javax.swing.JOptionPane;
+
+public class mcd {
+    public static void main(String[] args) {
+        String input1 = JOptionPane.showInputDialog("Ingreses el primer número:");
+        String input2 = JOptionPane.showInputDialog("Ingrese el segundo número:");
+        
+        int num1 = Integer.parseInt(input1); 
+        int num2 = Integer.parseInt(input2); 
+        int mcd = calcularMCD(num1, num2);
+        
+        JOptionPane.showMessageDialog(null, "El máximo común divisor de " + num1 + " y " + num2 + " es: " + mcd);
+    }
+
+    public static int calcularMCD(int a, int b) {
+        while (b != 0) {
+            int temp = b;
+            b = a % b; 
+            a = temp; 
+        }
+        return a; 
+    }
+}

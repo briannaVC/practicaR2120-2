@@ -1,0 +1,33 @@
+
+import javax.swing.JOptionPane;
+
+public class numerodefibonacci {
+    public static void main(String[] args) {
+        String input = JOptionPane.showInputDialog("Ingrese un número para calcular su Fibonacci:");
+        
+        int n = Integer.parseInt(input); 
+        int resultado = fibonacci(n);
+        
+        JOptionPane.showMessageDialog(null, "El Fibonacci de " + n + " es: " + resultado);
+    }
+
+    public static int fibonacci(int n) {
+        if (n <= 0) {
+            return -1; 
+        } else if (n == 1) {
+            return 1; 
+        } else if (n == 2) {
+            return 1; 
+        } else {
+            int a = 1, b = 1;
+            for (int i = 2; i < n; i++) {
+                int temp = b;
+                b = a + b;
+                a = temp;
+            }
+            return b;
+        }
+    }
+}
+
+
